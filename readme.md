@@ -50,7 +50,7 @@ The highlights group in which the text should be highlighted. (optional)
 ###### `callback: table|function`
   The callback to invoke or configuration options for the flag.
   Note that you can use the `callback` key in the table to provide a function.
-  ***** Configuration
+##### Configuration
   The default configuration looks like this:
   ```lua
 {
