@@ -125,10 +125,11 @@ begin_selection(buffer)
             end)
     ```
 
-### Get prompt input and print it
+### Get prompt input with default text and print it
     ```lua
     selection:prompt("Input", {
             callback = function(text) print(text) end,
+            prompt_text="Default Text"
             })
 ```
 
