@@ -647,19 +647,13 @@ end
 ---@param name string Name of the buffer
 ---@param mappings table Table with mappings for `destroy` and `go_back`
 s_popup.new_selection = function(name, mappings)
-    if not mappings.destroy then
-        mappings.destroy = "<ESC>"
-    end
-    if not mappings.go_back then
-        mappings.go_back = "<BS>"
-    end
-    local buffer = s_popup.create_split(name, {})
+    local buffer = s_popup.create_split(name or "selection_popup", {})
     local selection = require("selection_popup").begin_selection(buffer)
 
-        :listener("destroy", { mappings.destroy }, function(self)
+        :listener("destroy", { mappings.destroy or "<ESC>" }, function(self)
             self:destroy()
         end)
-        :listener("go-back", { mappings.go_back }, function(self)
+        :listener("go-back", { mappings.go_back or "<BS>" }, function(self)
             self:pop_page()
         end)
     return selection
